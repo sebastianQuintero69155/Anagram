@@ -126,5 +126,4 @@ public class Solution {
         System.out.println("La palabra ingresada por el usuario es: " + palabra + "\n");
         System.out.println("Las palabras ANAGRAMAS posibles son " + resultado);
     }
-
 }
