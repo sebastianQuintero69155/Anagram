@@ -22,7 +22,7 @@ public class Solution {
     public void solutionProblem(String palabra) {
         subirArchivo(palabra);
     }
-
+//Metodo para cargar el archivo con las n palabras y para validar la palabra que ingreso el usuario con el archivo
     public void subirArchivo(String palabra) {
         File archivo = null;
         FileReader fr = null;
@@ -42,16 +42,15 @@ public class Solution {
             String linea;
             while ((linea = br.readLine()) != null) {
                 valido = true;
-//          comprara tamaños de palabras
+//          comprara tamaños de palabras y caracter por caracter
                 contLetras = 0;
                 if (palabra.length() == linea.length()) {
-
                     for (int i = 0; i < palabra.length(); i++) {
                         conto = false;
                         valido = true;
                         for (int j = 0; j < palabra.length(); j++) {
                             if (valido == true) {
-                                if (palabra.charAt(i) == linea.charAt(j)) {
+                                if (palabra.charAt(i) == linea.charAt(j)) {//validacion de caracter  de la palabra con lista 
                                     contLetras++;
                                     conto = true;
                                 }
@@ -63,7 +62,7 @@ public class Solution {
                         }
 
                     }
-                    if (contLetras == palabra.length()) {
+                    if (contLetras == palabra.length()) {// añadimos la palabra que coincide con el numero de caracteres a la lista
                         anagram.add(linea);
 
                     }
@@ -85,7 +84,7 @@ public class Solution {
         }
         validarPalabras(palabra);
     }
-
+// metodo para la segunda validacion con las palabras que tenemos en el primer array list
     public void validarPalabras(String palabra) {
         int contLetras = 0;
         boolean valido = true;
@@ -98,7 +97,7 @@ public class Solution {
                     valido = true;
                     for (int j = 0; j < palabra.length(); j++) {
                         if (valido == true) {
-                            if (anagram.get(s).charAt(i) == palabra.charAt(j)) {
+                            if (anagram.get(s).charAt(i) == palabra.charAt(j)) { //validacion de caracter de la posible lista con la palabra
                                 contLetras++;
                                 conto = true;
                             }
@@ -121,9 +120,12 @@ public class Solution {
         imprimirPalabras(palabra);
 
     }
-
+//-------------------------------------------------------------
+    
+//  metodo para imprimir las palabras del anagram 
     public void imprimirPalabras(String palabra) {
         System.out.println("La palabra ingresada por el usuario es: " + palabra + "\n");
         System.out.println("Las palabras ANAGRAMAS posibles son " + resultado);
     }
+//----------------------------------------------------    
 }
